@@ -1,0 +1,10 @@
+services:
+  bot:
+    build: .
+    container_name: cryptobot
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:////app/data/cryptobot.db
